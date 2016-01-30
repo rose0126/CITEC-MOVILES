@@ -263,7 +263,9 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
 
         }}
         catch(Exception e){
-            pantalla.setText("error");
+            Toast mensaje4 = Toast.makeText(getApplicationContext(),"ERROR", Toast.LENGTH_SHORT);
+            mensaje4.setGravity(Gravity.TOP | Gravity.CENTER, 0,80);
+            mensaje4.show();
         }
     }
 
