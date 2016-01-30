@@ -17,13 +17,16 @@
         android:layout_alignParentTop="true"
         android:id="@+id/linearLayout">
 
-        <EditText
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText"
+            android:id="@+id/Pantalla"
             android:layout_gravity="center_horizontal"
             android:gravity="right"
-            android:text="0" />
+            android:textSize="32sp"
+            android:text=""
+            android:textColor="#212121"
+            android:padding="2dp" />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -75,7 +78,8 @@
                 android:layout_weight="0.07"
                 android:textColor="#fff"
                 android:layout_margin="2dp"
-                android:id="@+id/buttonempty" />
+                android:id="@+id/buttonpi"
+                android:text="pi" />
 
         </LinearLayout>
 
