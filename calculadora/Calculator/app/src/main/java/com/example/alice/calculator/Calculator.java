@@ -3,9 +3,11 @@ package com.example.alice.calculator;
 import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Calculator extends AppCompatActivity implements View.OnClickListener {
 
@@ -18,6 +20,7 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
     boolean raizz= false;
     Double[] numero= new Double[20];
     Double resultado;
+    String hintt="";
 
 
 
@@ -84,6 +87,7 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
         int select=v.getId();
         String a=pantalla.getText().toString();
 
+
         try{
         switch(select){
 
@@ -128,6 +132,7 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
 
             case R.id.buttonmult:
                 numero[0]= Double.parseDouble(a);
+                hintt=numero[0].toString()+"x";
                 //pantalla.setText(a+"x");
                 pantalla.setText("");
                 multi=true;
@@ -135,6 +140,7 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
                 break;
             case R.id.buttonsum:
                 numero[0]= Double.parseDouble(a);
+                hintt=numero[0].toString()+" + ";
                 //pantalla.setText(a+"+");
                 pantalla.setText("");
                 suma=true;
@@ -142,6 +148,7 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
                 break;
             case R.id.buttondiv:
                 numero[0]= Double.parseDouble(a);
+                hintt=numero[0].toString()+" / ";
                 //pantalla.setText(a+"/");
                 pantalla.setText("");
                 division=true;
@@ -149,6 +156,7 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
                 break;
             case R.id.buttonrest:
                 numero[0]= Double.parseDouble(a);
+                hintt=numero[0].toString()+" - ";
                 //pantalla.setText(a+"-");
                 pantalla.setText("");
                 restaa=true;
@@ -156,6 +164,7 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
                 break;
             case R.id.buttonpot:
                 numero[0]= Double.parseDouble(a);
+                hintt=numero[0].toString()+" a la ";
                 //pantalla.setText(a+"-");
                 pantalla.setText("");
                 poten=true;
@@ -164,6 +173,7 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
             case R.id.buttonraiz:
                 numero[0]= Double.parseDouble(a);
                 //pantalla.setText(a+"-");
+                hintt=numero[0].toString()+" a la raiz ";
                 pantalla.setText("");
                 raizz=true;
                 decimal=false;
@@ -171,8 +181,10 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
 
 
             case R.id.buttonigual:
-
                 numero[1]= Double.parseDouble(a);
+                Toast mensaje = Toast.makeText(getApplicationContext(),hintt+numero[1].toString(), Toast.LENGTH_SHORT);
+                mensaje.setGravity(Gravity.TOP | Gravity.CENTER, 0, 80);
+                mensaje.show();
                 if(suma==true){
                     resultado=numero[0]+numero[1];
                     pantalla.setText(String.valueOf(resultado));
@@ -209,20 +221,33 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
                 resultado = Math.sin(numero[0]);
                 pantalla.setText(String.valueOf(resultado));
                 decimal=false;
+                hintt="Seno de "+numero[0].toString()+" es";
+                Toast mensaje1 = Toast.makeText(getApplicationContext(),hintt, Toast.LENGTH_SHORT);
+                mensaje1.setGravity(Gravity.TOP | Gravity.CENTER, 0, 80);
+                mensaje1.show();
                 break;
             case R.id.buttoncos:
                 numero[0]= Double.parseDouble(a);
                 resultado = Math.cos(numero[0]);
                 pantalla.setText(String.valueOf(resultado));
                 decimal=false;
+                hintt="Coseno de "+numero[0].toString()+" es";
+                Toast mensaje2 = Toast.makeText(getApplicationContext(),hintt, Toast.LENGTH_SHORT);
+                mensaje2.setGravity(Gravity.TOP | Gravity.CENTER, 0, 80);
+                mensaje2.show();
                 break;
             case R.id.buttontan:
                 numero[0]= Double.parseDouble(a);
                 resultado = Math.tan(numero[0]);
                 pantalla.setText(String.valueOf(resultado));
+                hintt="Tangente de "+numero[0].toString()+" es";
+                Toast mensaje3 = Toast.makeText(getApplicationContext(),hintt, Toast.LENGTH_SHORT);
+                mensaje3.setGravity(Gravity.TOP | Gravity.CENTER, 0,80);
+                mensaje3.show();
                 decimal=false;
                 break;
             case R.id.buttonac:
+                hintt="";
                 pantalla.setText("");
                 decimal=false;
                 break;
@@ -230,6 +255,7 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
                 if (a != null || a.length() > 0) {
                     a= a.substring(0, a.length()-1);
                 }
+                hintt=a;
                 pantalla.setText(a);
 
                 break;
