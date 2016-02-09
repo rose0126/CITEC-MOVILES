@@ -102,11 +102,9 @@ public class ContentActivity extends AppCompatActivity
            ContentActivity.this.startActivity(myIntent);
 
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_wbc) {
             Intent myIntent = new Intent(ContentActivity.this,OWCity.class);
             ContentActivity.this.startActivity(myIntent);
-
-        } else if (id == R.id.nav_send) {
 
         }
 

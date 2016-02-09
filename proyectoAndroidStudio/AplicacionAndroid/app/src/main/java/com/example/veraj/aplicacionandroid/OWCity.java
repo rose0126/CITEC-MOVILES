@@ -50,7 +50,7 @@ public class OWCity extends AppCompatActivity {
     public void searchCities(View view) {
         String ciudadn = inputCity.getText().toString();
         if (!TextUtils.isEmpty(ciudadn)) {
-            String url="http://api.openweathermap.org/data/2.5/weather?q="+ciudadn+"&appid=44db6a862fba0b067b1930da0d769e98";
+            String url="http://api.openweathermap.org/data/2.5/weather?q="+ciudadn+"&units=metric&appid=44db6a862fba0b067b1930da0d769e98";
 
 
             new LoadCityTask().execute(url);
@@ -104,12 +104,17 @@ public class OWCity extends AppCompatActivity {
 
         TextView tv4= (TextView)findViewById(R.id.tv4);
 
+        TextView tv5= (TextView)findViewById(R.id.tv5);
+
+        tv1.setText(busquedaciu.getName().toString());
         tv2.setText("Temp: " + busquedaciu.getMain().getTemp().toString());
         tv3.setText("\" " + busquedaciu.getWeather().get(0).getDescription()+"\"");
 
-        tv4.setText("Latitud " + busquedaciu.getCoord().getLat().toString() + " \n LOngitud " + busquedaciu.getCoord().getLon().toString());
+        tv4.setText("Latitud " + busquedaciu.getCoord().getLat().toString() + " \n Longitud " + busquedaciu.getCoord().getLon().toString());
         String urlimg="http://openweathermap.org/img/w/"+busquedaciu.getWeather().get(0).getIcon()+".png";
-        Picasso.with(context).load(urlimg).into(iv1);
+        Picasso.with(this).load(urlimg).into(iv1);
+
+        tv5.setText("Pressure: " + busquedaciu.getMain().getPressure().toString()  + "hPa");
 
 
 

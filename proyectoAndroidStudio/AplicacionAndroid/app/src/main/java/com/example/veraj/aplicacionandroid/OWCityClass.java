@@ -6,6 +6,15 @@ import java.util.List;
  * Created by Alice on 08/02/2016.
  */
 public class OWCityClass {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    String name;
     Coord coord;
     List<weat>  weather;
     Main main;
