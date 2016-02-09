@@ -87,6 +87,7 @@
                         android:id="@+id/textView7"
                         android:layout_gravity="left|center"
                         android:textColor="#e6fefcfc" />
+
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

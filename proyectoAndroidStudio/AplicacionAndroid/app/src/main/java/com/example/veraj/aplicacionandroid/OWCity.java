@@ -106,15 +106,23 @@ public class OWCity extends AppCompatActivity {
 
         TextView tv5= (TextView)findViewById(R.id.tv5);
 
+        TextView tv6= (TextView)findViewById(R.id.tv6);
+        TextView tv7= (TextView)findViewById(R.id.tv7);
+
+        TextView tv8= (TextView)findViewById(R.id.tv8);
+
         tv1.setText(busquedaciu.getName().toString());
-        tv2.setText("Temp: " + busquedaciu.getMain().getTemp().toString());
+        tv2.setText("Temp: " + busquedaciu.getMain().getTemp().toString() + "°C");
         tv3.setText("\" " + busquedaciu.getWeather().get(0).getDescription()+"\"");
 
         tv4.setText("Latitud " + busquedaciu.getCoord().getLat().toString() + " \n Longitud " + busquedaciu.getCoord().getLon().toString());
         String urlimg="http://openweathermap.org/img/w/"+busquedaciu.getWeather().get(0).getIcon()+".png";
         Picasso.with(this).load(urlimg).into(iv1);
 
-        tv5.setText("Pressure: " + busquedaciu.getMain().getPressure().toString()  + "hPa");
+        tv5.setText("Pressure: " + busquedaciu.getMain().getPressure().toString() + "hPa");
+        tv6.setText("Humidity: " + busquedaciu.getMain().getHumidity().toString()  + "%");
+        tv7.setText("Max Temp: " + busquedaciu.getMain().getTemp_max().toString()  + "°C");
+        tv8.setText("Min Temp: " + busquedaciu.getMain().getTemp_min().toString()  + "°C");
 
 
 
