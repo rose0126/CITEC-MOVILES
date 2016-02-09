@@ -1,6 +1,5 @@
 package com.example.veraj.aplicacionandroid;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,7 +12,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 public class ContentActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -57,16 +55,7 @@ public class ContentActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-
-        Bundle nombreuser=getIntent().getExtras();
-        String aa=nombreuser.getString("key").toString();
         getMenuInflater().inflate(R.menu.content, menu);
-        TextView userhead = (TextView)findViewById(R.id.headeruser);
-
-        TextView useremail= (TextView)findViewById(R.id.textView);
-        userhead.setText("Usuario"+aa);
-        useremail.setText(aa+"@today.com");
-
         return true;
     }
 
@@ -91,16 +80,13 @@ public class ContentActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_home) {
+        if (id == R.id.nav_camera) {
+            // Handle the camera action
+        } else if (id == R.id.nav_gallery) {
 
-        } else if (id == R.id.nav_weather) {
-            Intent myIntent = new Intent(ContentActivity.this, ActivityCiudades.class);
-            ContentActivity.this.startActivity(myIntent);
+        } else if (id == R.id.nav_slideshow) {
 
-        } else if (id == R.id.nav_movies) {
-            Intent myIntent = new Intent(ContentActivity.this, PeliculasAct.class);
-           ContentActivity.this.startActivity(myIntent);
-
+        } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
 
