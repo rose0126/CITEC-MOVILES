@@ -29,7 +29,8 @@ public class MainActivity extends AppCompatActivity {
         mensaje.show();
 
         Intent myIntent = new Intent(MainActivity.this, ContentActivity.class);
-        myIntent.putExtra("key", texto.getText()); //Optional parameters
+        myIntent.putExtra("key", texto.getText().toString()); //Optional parameters
         MainActivity.this.startActivity(myIntent);
+
     }
 }
